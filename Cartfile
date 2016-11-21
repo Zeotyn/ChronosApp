@@ -1,4 +1,4 @@
 github "ReactiveCocoa/ReactiveCocoa" "5.0.0-alpha.3"
-github "ReactiveCocoa/ReactiveSwift"
+github "ReactiveCocoa/ReactiveSwift" "1.0.0-alpha.3"
 github "SnapKit/SnapKit" ~> 3.0
 github "Swinject/Swinject" "2.0.0-beta.2"
