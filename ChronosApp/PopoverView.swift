@@ -19,14 +19,14 @@ class PopoverView: NSView {
         super.init(frame: frameRect)
         self.addSubview(textField)
         self.addSubview(button)
-
+        
         textField.snp.makeConstraints { make in
             make.top.left.right.equalTo(self).offset(10)
         }
         button.snp.makeConstraints { make in
-            make.top.equalTo(textField.snp.bottom).offset(20)
-            make.left.equalTo(self).offset(10)
-            make.right.equalTo(self).offset(10)
+            make.top.equalTo(textField.snp.bottom).offset(10)
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
         }
 
         textField.isEditable = false
@@ -34,6 +34,8 @@ class PopoverView: NSView {
         textField.drawsBackground = false
         textField.isBezeled = false
         textField.stringValue = "Timer 25:00"
+
+        button.bezelStyle = .rounded
     }
 
     required init?(coder: NSCoder) {

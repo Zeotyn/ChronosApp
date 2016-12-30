@@ -8,20 +8,31 @@
 
 import Foundation
 import ReactiveSwift
+import Result
 
 class PopoverViewModel {
     let time = MutableProperty<TimeInterval>(1500)
     var timer = Timer()
+    var timerActive = false
 
     init(time: TimeInterval = 1500) {
         self.time.value = time
-        timer = Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(PopoverViewModel.countdown(sender:)),
-            userInfo: nil,
-            repeats: true
-        )
+    }
+
+    @objc func doSomething(sender: AnyObject?) {
+        if !timerActive {
+            timer = Timer.scheduledTimer(
+                timeInterval: 1,
+                target: self,
+                selector: #selector(PopoverViewModel.countdown(sender:)),
+                userInfo: nil,
+                repeats: true
+            )
+            timerActive = true
+        } else {
+            timer.invalidate()
+            timerActive = false
+        }
     }
 
     @objc func countdown(sender: AnyObject?) {

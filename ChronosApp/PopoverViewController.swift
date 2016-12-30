@@ -23,6 +23,8 @@ class PopoverViewController: NSViewController {
             
             return String("\(hours):\(minutes):\(seconds)")
         })
+        popoverView.button.target = viewModel
+        popoverView.button.action = #selector(viewModel.doSomething(sender:))
         view = popoverView
     }
 

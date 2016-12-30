@@ -24,15 +24,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(AppDelegate.togglePopover(sender:))
         }
 
+        popover.behavior = .transient
+
         popover.contentViewController = container.resolve(PopoverViewController.self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-    }
-
-    func printSomething() {
-        NSLog("something")
     }
 
     func showPopover(sender: AnyObject?) {
